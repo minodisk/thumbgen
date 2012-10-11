@@ -1,6 +1,6 @@
 # thumbgen
 
-Generate thumbnail of images or movies width imagemagick and ffmpeg.
+Generate thumbnail of images or movies with imagemagick and ffmpeg.
 
 ## installation
 
