@@ -8,4 +8,4 @@ Generate thumbnail of images or movies with imagemagick and ffmpeg.
 
 ## usage
 
-    thumbgen -width 64 -height 64
+    thumbgen -w 64 -h 64
