@@ -1,0 +1,28 @@
+{
+  "name"        : "thumbgen",
+  "version"     : "0.1.2",
+  "description" : "",
+  "tags"        : [],
+  "author"      : {
+    "name" : "Daisuke Mino",
+    "email": "daisuke.mino@gmail.com"
+  },
+  "repository"  : {
+    "type": "git",
+    "url" : "https://minodisk@github.com/minodisk/thumbgen.git"
+  },
+  "engines"     : {
+    "node": ">=0.6.0"
+  },
+  "license"     : "MIT",
+  "dependencies": {
+    "colors"     : ">=0.6.0-1",
+    "commander"  : ">=1.0.5",
+    "imagemagick": ">=0.1.3",
+    "jsdeferred" : ">=0.4.0"
+  },
+  "bin"         : {
+    "thumbgen": "./bin/thumbgen"
+  },
+  "main"        : "./lib/thumbgen"
+}

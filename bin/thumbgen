@@ -1,0 +1,33 @@
+#!/usr/bin/env node
+
+var arg, argv, thumbgen, commander, flag, fs, opts, path, _i, _len;
+
+fs = require('fs');
+path = require('path');
+thumbgen = require('../lib/thumbgen');
+commander = require('commander');
+
+commander
+  .version(JSON.parse(fs.readFileSync(path.join(__dirname, '../package.json'), 'utf8')).version)
+  .usage('[options]')
+  .option('-i, --input [dirname]', 'set the input directory of source image and movie (default is [input])', 'input')
+  .option('-o, --output [dirname]', 'set the output directory of generated thumbnail (default is [output])', 'output')
+  .option('-w, --width [pixel]', 'set thumbnail width')
+  .option('-h, --height [pixel]', 'set thumbnail height')
+  .option('-x, --scaleX [scale]', 'set thumbnail horizontal scale')
+  .option('-y, --scaleY [scale]', 'set thumbnail vertical scale')
+  .option('-m, --mode [mode]', 'set mode [max](default), [min] or [trim]', 'max')
+  .option('-f, --format [format]', 'set format [png](default), [jpg] or [gif]', 'png')
+  .option('-q, --quality [quality]', 'set quality of jpg (default is 0.8)', 0.8);
+commander.on('--help', function () {
+  console.log('  Examples:');
+  console.log('');
+  console.log('    $ thumbgen -i src -o dst');
+  console.log('    $ thumbgen -i input -o output -m trim');
+  console.log('    $ thumbgen -i input -o output -w 64');
+  console.log('    $ thumbgen -i input -o output -w 128 -h 96 -m trim');
+  console.log('    $ thumbgen -i input -o output -x 0.5 -m min');
+  console.log('');
+});
+commander.parse(process.argv);
+thumbgen.run(commander);
